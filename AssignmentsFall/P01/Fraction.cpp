@@ -11,7 +11,7 @@
 
 // Fraction.cpp
 
-#include "Fraction.h"
+#include "fraction.h"
 
 // Default constructor initializes the fraction to 0/1.
 Fraction::Fraction() : num(0), den(1) {}
