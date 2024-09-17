@@ -2,12 +2,17 @@
 // Assignment 1
 // This program demonstrates addition, multiplacation and
 // substraction of fractions.
-// GCD Calculation: Used to simplify fractions.
-// LCD Calculation: Used to find the least common denominator for addition and subtraction.
 // Addition and Subtraction: Adjusted fractions to a common denominator before performing operations.
 // Multiplication: Multiplied numerators and denominators directly.
-// Reduction: Simplified fractions after operations.
 // Setters and Getters: Added methods to modify and access the private members of the class.
+// Constructor and Error Handling: Detailed comments on constructors, especially the one taking a string and 
+// ensuring the denominator is not zero.
+// GCD and LCD Calculation: Clear explanations on how the gcd and lcd functions work, including their purpose 
+// in reducing and finding common denominators for fractions.
+// Operator Overloading: Explained how each operator overload (+, -, *, /, ==) is implemented, 
+// focusing on the logic behind using the least common denominator (LCD) for addition and subtraction.
+// Fraction Reduction: Comments added to the reduce method to explain why it's necessary to always keep
+// the denominator positive and simplify the fraction.
 
 // Fraction.cpp
 
