@@ -20,8 +20,8 @@ This project demonstrates basic operations on fractions, including addition, sub
 
 |   #   | File            | Description                                        |
 | :---: | --------------- | -------------------------------------------------- |
-|   1   | [Fraction.h](fraction.h) | Header file defining the `Fraction` class and its methods. |
-|   2   | [Fraction.cpp](fraction.cpp) | Implementation file for the `Fraction` class, including operator overloading and fraction operations. |
+|   1   | [Fraction.h](Fraction.h) | Header file defining the `Fraction` class and its methods. |
+|   2   | [Fraction.cpp](Fraction.cpp) | Implementation file for the `Fraction` class, including operator overloading and fraction operations. |
 |   3   | [main.cpp](main.cpp) | Main driver program that handles user input, performs operations, and displays results. |
 
 ### Instructions
