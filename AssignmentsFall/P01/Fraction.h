@@ -5,9 +5,9 @@
 
 #include <iostream>
 #include <cmath>
+#include <string>
 
 class Fraction {
-
 private:
     int num; // Numerator
     int den; // Denominator
@@ -38,3 +38,4 @@ public:
 };
 
 #endif
+
