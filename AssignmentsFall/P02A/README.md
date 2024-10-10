@@ -1,5 +1,7 @@
 P02A - Installing ncurses on Windows 11 with WSL
+
 Jhymani Joseph
+
 Description:
 This project provides a step-by-step guide for installing ncurses on Windows 11 using Windows Subsystem for Linux (WSL). It includes instructions for setting up WSL, updating Ubuntu, installing ncurses, and running a simple "Hello, World!" program to test the installation. The goal is to ensure that ncurses is properly installed and working.
 
