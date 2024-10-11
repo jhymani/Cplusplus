@@ -9,8 +9,8 @@ This project provides a step-by-step guide for installing ncurses on Windows 11 
 
 |   #   | File            | Description                                        |
 | :---: | --------------- | -------------------------------------------------- |
-|   1   | [Screenshot 2024-10-10 133019] |A Screenshot of the C++ program 'hello_ncurses.cpp' that tests the installation of ncurses. |
-|   2   | [Screenshot 2024-10-10 133153] |Screenshot of the hello_ncurses program running in WSL. |
+|   1   | [Screenshot #1] |A Screenshot of the C++ program 'hello_ncurses.cpp' that tests the installation of ncurses. |
+|   2   | [Screenshot #2] |Screenshot of the hello_ncurses program running in WSL. |
 |   3   | [README.md] |This README file with setup instructions and details.|
 
 
@@ -78,6 +78,11 @@ Compilation errors: Ensure that the -lncurses flag is used when compiling to lin
 WSL not installed properly: If wsl --install doesn't work, check for Windows updates or use the official WSL documentation for troubleshooting
 
 Screenshots:
+1. 
 ![Screenshot 2024-10-10 133153](https://github.com/user-attachments/assets/63997b26-a45a-4b5f-a9fa-31a9a4b3a5cb)
+
+2.
 ![Screenshot 2024-10-10 133019](https://github.com/user-attachments/assets/c9591d64-8916-4535-8693-2b4b435ad96a)
+
+3.
 ![Screenshot 2024-10-10 132933](https://github.com/user-attachments/assets/8c5a5c92-4519-4e54-900a-f07924ed6f4a)
