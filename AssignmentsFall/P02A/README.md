@@ -5,11 +5,14 @@ Jhymani Joseph
 Description:
 This project provides a step-by-step guide for installing ncurses on Windows 11 using Windows Subsystem for Linux (WSL). It includes instructions for setting up WSL, updating Ubuntu, installing ncurses, and running a simple "Hello, World!" program to test the installation. The goal is to ensure that ncurses is properly installed and working.
 
-Files
-#	File	Description
-1	hello_ncurses.cpp	A C++ program that tests the installation of ncurses.
-2 Screenshot 2024-10-10 133153	Screenshot of the hello_ncurses program running in WSL.
-3	README.md	This README file with setup instructions and details.
+### Files
+
+|   #   | File            | Description                                        |
+| :---: | --------------- | -------------------------------------------------- |
+|   1   | [hello_ncurses.cpp] |A C++ program that tests the installation of ncurses. |
+|   2   | [Screenshot 2024-10-10 133153] |Screenshot of the hello_ncurses program running in WSL. |
+|   3   | [README.md] |This README file with setup instructions and details.|
+
 
 Instructions
 I Installed WSL on Windows 11:
