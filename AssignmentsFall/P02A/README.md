@@ -9,7 +9,7 @@ This project provides a step-by-step guide for installing ncurses on Windows 11 
 
 |   #   | File            | Description                                        |
 | :---: | --------------- | -------------------------------------------------- |
-|   1   | [hello_ncurses.cpp] |A C++ program that tests the installation of ncurses. |
+|   1   | [Screenshot 2024-10-10 133019] |A Screenshot of the C++ program 'hello_ncurses.cpp' that tests the installation of ncurses. |
 |   2   | [Screenshot 2024-10-10 133153] |Screenshot of the hello_ncurses program running in WSL. |
 |   3   | [README.md] |This README file with setup instructions and details.|
 
