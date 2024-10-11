@@ -42,11 +42,14 @@
 
 ---
 
-#### **Board Class**
+#### **Stats Class**
 
 **Data:**
 - `grid`: 2D array (3x3) to represent where the player's dice are placed.
-
+- 'played'
+- 'wins'
+- 'losses'
+- 'streak'
 **Actions:**
 - `place_die(int column, int value)`: Place a die in a specified column.
 - `remove_die(int column, int value)`: Remove a die if an opponent places a matching value.
