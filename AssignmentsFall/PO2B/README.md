@@ -22,9 +22,13 @@
 #### **Player Class**
 
 **Data:**
-- `name`: The name of the player.
+- `username`: The name of the player.
 - `score`: Current score of the player.
 - `dice_set`: A collection of `Dice` objects.
+- 'fname'
+- 'lname'
+- 'password'
+- 'playerstats'
 - `board`: A 3x3 grid (represented as a 2D array) where dice values are placed.
 - `player_stats`: Stats such as wins, losses, and total games played.
 
@@ -69,6 +73,8 @@
 - `rules`: Set of rules that define the game logic.
 - `current_round`: Tracks the current round number.
 - `game_state`: Keeps track of whether the game is ongoing or ended.
+- 'addtoscore'
+- 
 
 **Actions:**
 - `start_game()`: Begin a new game and set up initial conditions.
