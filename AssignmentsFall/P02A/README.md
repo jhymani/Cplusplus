@@ -79,9 +79,3 @@ Compilation errors: Ensure that the -lncurses flag is used when compiling to lin
 
 WSL not installed properly: If wsl --install doesn't work, check for Windows updates or use the official WSL documentation for troubleshooting
 
-
-2.
-![Screenshot 2024-10-10 133019](https://github.com/user-attachments/assets/c9591d64-8916-4535-8693-2b4b435ad96a)
-
-3.
-![Screenshot 2024-10-10 132933](https://github.com/user-attachments/assets/8c5a5c92-4519-4e54-900a-f07924ed6f4a)
