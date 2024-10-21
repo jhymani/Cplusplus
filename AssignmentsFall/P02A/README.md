@@ -17,36 +17,22 @@ This project provides a step-by-step guide for installing ncurses on Windows 11 
 
 
 Instructions
-I Installed WSL on Windows 11:
 
-Open PowerShell as Administrator and run:
-bash
+I Installed WSL on Windows 11.
 
 After installation, I launched Ubuntu from the Start Menu or by typing wsl in PowerShell/Command Prompt.
 
-I updated the Ubuntu packages:
-bash
+I updated the Ubuntu packages.
+Then I installed ncurses.
 
-sudo apt update
-sudo apt upgrade
+Then I installed the development libraries required for ncurses.
 
-Then I installed ncurses:
+Then I copied the Simple ncurses "Hello World" Program.
 
-Then I installed the development libraries required for ncurses:
+Then I created a C++ file using a text editor nano:.
 
-bash
+Then I copied  the following code in hello_ncurses.cpp.
 
-sudo apt install libncurses5-dev libncursesw5-dev
-Create a Simple ncurses "Hello World" Program:
-
-Then I created a C++ file using a text editor nano:
-
-bash
-
-nano hello_ncurses.cpp
-Then I wrote the following code in hello_ncurses.cpp:
-cpp
-Copy code
 #include <ncurses.h>
 
 int main() {
@@ -57,17 +43,11 @@ int main() {
     endwin();             // End ncurses mode
     return 0;
 }
-Then I ompiled and Ran the Program:
+Then I ompiled and Ran the Program.
 
-Then I compiled the program with g++:
-bash
+Then I compiled the program with g++.
 
-g++ hello_ncurses.cpp -o hello_ncurses -lncurses
-
-Then I ran the compiled program:
-bash
-
-./hello_ncurses
+Then I ran the compiled program.
 
 Then I saw "Hello, World!" displayed in the terminal.
 
