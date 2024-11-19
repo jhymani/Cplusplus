@@ -31,7 +31,7 @@ Ensure you have the Ncurses library installed on your machine.
 
 To compile the program, navigate to the folder where your files are located and run the following command:
 
-bash
+```bash
 g++ -o Knucklebones PROGRAM_Assignmentknucklebones.cpp -lncurses
 
 Execute the Program
