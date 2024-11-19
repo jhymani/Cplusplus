@@ -37,8 +37,6 @@ g++ -o Knucklebones PROGRAM_Assignmentknucklebones.cpp -lncurses
 Execute the Program
 Once compiled, you can run the game by executing the following command:
 
-bash
-Copy code
 ./Knucklebones
 This will start the game in an interactive console window, where you can play the game by following the on-screen instructions.
 
@@ -59,9 +57,6 @@ When placing dice on the grid, ensure you enter a column number between 1 and 3.
 Example Command
 
 To start the game, run the compiled binary:
-
-bash
-Copy code
 ./Knucklebones
 
 Additional Notes
