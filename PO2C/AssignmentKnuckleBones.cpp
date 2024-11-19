@@ -1,6 +1,6 @@
 // Jhymani Joseph PO2C
 // Assignment 06
-// Due Date: March 06
+// Due Date: November 18th
 // This C++ program implements the **Knucklebones** dice game from 
 //*Cult of the Lamb* using the Ncurses library for interactive console gameplay. 
 //The game is played between two players on a 3x3 grid, where 
