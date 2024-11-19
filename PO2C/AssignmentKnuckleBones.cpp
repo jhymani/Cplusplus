@@ -25,7 +25,6 @@
 
 using namespace std;
 
-// Game class that controls the flow of the game
 class Game {
 public:
     Game() {
@@ -35,7 +34,6 @@ public:
 
     // Main method to start and manage the game
     void start() {
-        // Initialize the game window and other settings using Ncurses
         initscr();
         noecho();
         cbreak();
@@ -45,59 +43,49 @@ public:
         mousemask(ALL_MOUSE_EVENTS, NULL);
         setlocale(LC_ALL, "");
 
-        // Initialize colors for the game interface
         Colorly::init_colors();
 
-        // Initialize players and game grid
         initialize_players("Player 1", "Player 2");
         grid = Grid();
 
-        // Main game loop
         while (true) {
-            display_game_state();  // Display current game state (grid and scores)
-            take_turn();           // Execute the current player's turn
-            if (check_win()) {     // Check if the game has ended
-                end_game();         // If game ends, display results
+            display_game_state();
+            take_turn();
+            if (check_win()) {
+                end_game();
                 break;
             }
-            switch_turn();         // Switch turn to the other player
+            switch_turn();
         }
 
-        endwin();  // End Ncurses session and close the game window
+        endwin();  // End Ncurses session
     }
 
-    // Initialize players with given names
     void initialize_players(string player1_name, string player2_name) {
         players[0] = Player(player1_name);
         players[1] = Player(player2_name);
     }
 
-    // Method for executing a player's turn
     void take_turn() {
         current_player->take_turn(*this);
     }
 
-    // Check if the grid is full (game over condition)
     bool check_win() {
         return grid.is_full();
     }
 
-    // Display the current state of the game (grid and scores)
     void display_game_state() {
-        clear();  // Clear the window for refreshing
-        grid.display();  // Display the current grid state
-        // Display player scores
+        clear();
+        grid.display();
         mvprintw(0, 0, "%s's score: %d", players[0].get_name().c_str(), players[0].get_score());
         mvprintw(1, 0, "%s's score: %d", players[1].get_name().c_str(), players[1].get_score());
-        refresh();  // Refresh the window to update the display
+        refresh();
     }
 
-    // End the game and display the result
     void end_game() {
         int score1 = players[0].get_score();
         int score2 = players[1].get_score();
 
-        // Display the winner based on the scores
         if (score1 > score2) {
             mvprintw(3, 0, "%s wins!", players[0].get_name().c_str());
         } else if (score2 > score1) {
@@ -106,97 +94,88 @@ public:
             mvprintw(3, 0, "It's a draw!");
         }
         refresh();
-        getch();  // Wait for user input before exiting
+        getch();
     }
 
-    // Switch the current player after each turn
     void switch_turn() {
         current_player = (current_player == &players[0]) ? &players[1] : &players[0];
     }
 
-    // Getter methods for game components (grid, dice, and current player)
     Grid& get_grid() { return grid; }
     Dice& get_dice() { return dice; }
     Player* get_current_player() { return current_player; }
 
 private:
-    Dice dice;  // Dice object to generate random rolls
-    Grid grid;  // Grid object to hold dice placements
-    Player* current_player;  // Pointer to track the current player
-    Player players[2];  // Array to store both players
+    Dice dice;
+    Grid grid;
+    Player* current_player;
+    Player players[2];
 };
 
-// Player class that manages player-specific actions
 class Player {
 public:
     Player(string name) : name(name), score(0) {}
 
-    // Method for taking a turn
     void take_turn(Game& game) {
         string input;
         mvprintw(5, 0, "%s's turn. Roll the dice!", name.c_str());
         refresh();
 
-        // Roll the dice and display the roll
         int roll = game.get_dice().roll();
         mvprintw(6, 0, "Rolled a %d", roll);
         refresh();
 
-        // Ask the player for input on where to place the dice
         mvprintw(7, 0, "Choose a column (1-3): ");
         refresh();
 
-        // Use the Input class to capture the player's choice
         Input input_box("Enter column:", 3, 30, 9, 30);
         input_box.printBorder();
         input_box.printInput(9, 45);
         input_box.captureInput();
         input = input_box.get_input();
 
-        int col = std::stoi(input) - 1;  // Convert to 0-based index
+        int col = std::stoi(input) - 1;
 
-        // Place the dice in the selected column and update the score
         if (game.get_grid().place_dice(roll, col)) {
-            add_to_score(roll);  // Add points to the score if the dice is placed successfully
+            add_to_score(roll);
+
+            // Check for opponent's dice removal if matching dice are placed
+            if (game.get_grid().remove_opponent_dice(col, roll, *this)) {
+                // Opponent's dice are removed
+            }
         }
 
-        game.display_game_state();  // Refresh game display
+        game.display_game_state();
     }
 
-    // Method to add points to the player's score
     void add_to_score(int points) {
         score += points;
     }
 
-    // Getter methods for player name and score
     string get_name() const { return name; }
     int get_score() const { return score; }
 
 private:
-    string name;  // Player's name
-    int score;    // Player's score
+    string name;
+    int score;
 };
 
-// Dice class that simulates the rolling of a die
 class Dice {
 public:
     Dice() : current_value(0) {}
 
-    // Roll the dice and return the result (1 to 6)
     int roll() {
         current_value = rand() % 6 + 1;
         return current_value;
     }
 
 private:
-    int current_value;  // The current value of the dice roll
+    int current_value;
 };
 
-// Grid class that manages the placement of dice
 class Grid {
 public:
     Grid() {
-        // Initialize the grid to be empty (0 represents empty)
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 cells[i][j] = 0;
@@ -204,18 +183,32 @@ public:
         }
     }
 
-    // Place the dice in the specified column (stacking vertically)
     bool place_dice(int roll, int col) {
         for (int i = 2; i >= 0; i--) {
-            if (cells[i][col] == 0) {  // If the cell is empty
-                cells[i][col] = roll;  // Place the dice here
+            if (cells[i][col] == 0) {
+                cells[i][col] = roll;
                 return true;
             }
         }
-        return false;  // If the column is full
+        return false;
     }
 
-    // Check if the grid is full (no empty cells)
+    bool remove_opponent_dice(int col, int roll, Player& current_player) {
+        for (int i = 0; i < 3; i++) {
+            if (cells[i][col] != 0 && cells[i][col] == roll) {
+                if (current_player.get_name() == "Player 1") {
+                    // Player 1 removes opponent's dice
+                    cells[i][col] = 0;
+                } else {
+                    // Player 2 removes opponent's dice
+                    cells[i][col] = 0;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
     bool is_full() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -227,7 +220,6 @@ public:
         return true;
     }
 
-    // Display the grid with the current dice placements
     void display() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -237,12 +229,11 @@ public:
     }
 
 private:
-    int cells[3][3];  // 3x3 grid to hold dice values
+    int cells[3][3];
 };
 
-// Main function to start the game
 int main() {
     Game game;
-    game.start();  // Start the game
+    game.start();
     return 0;
 }
