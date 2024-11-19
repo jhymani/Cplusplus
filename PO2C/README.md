@@ -16,7 +16,7 @@ This C++ program implements the Knucklebones dice game from *Cult of the Lamb* u
 | `input_class.hpp`            | Captures player input, similar to a text box.                    |
 | `log.txt`                    | Log file for debugging program activities.                       |
 | `logger_class.hpp`           | Assists with logging debug statements.                           |
-| `PROGRAM_Assignmentknucklebones.cpp` | Main game logic that integrates all classes and runs the game. |
+| `AssignmentKnuckleBones.cpp` | Main game logic that integrates all classes and runs the game. |
 
 ## Instructions
 
