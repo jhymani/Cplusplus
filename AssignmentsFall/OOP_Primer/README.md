@@ -9,7 +9,7 @@ Definitions
 ![Your-paragraph-text--59-](https://github.com/user-attachments/assets/c9e96748-dfa7-42b0-b7b9-94e577e3ebc6)
 
 e.g.
-'''class BankAccount {
+```class BankAccount {
 private:
     double balance;  // Private variable to store the balance
 
@@ -57,6 +57,6 @@ int main() {
     cout << "Final balance: $" << account.getBalance() << endl;
 
     return 0;
-} '''
+}```
 2. Abstract Classes and Interfaces 
 
